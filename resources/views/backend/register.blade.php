@@ -16,7 +16,7 @@
                             <p class="account-subtitle">Access to our dashboard</p>
 
                             <!-- Form -->
-                            <form action="" method="POST">
+                            <form action="{{ route('registered.backend') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <input name="name" class="form-control" type="text" placeholder="Name">
