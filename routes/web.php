@@ -21,3 +21,4 @@ use App\Http\Controllers\PagesController;
 
 // General Routes
 Route::get('/register', [PagesController::class, 'showRegisterPage'])->name('register.backend');
+Route::get('/login', [PagesController::class, 'showLoginPage'])->name('login.backend');

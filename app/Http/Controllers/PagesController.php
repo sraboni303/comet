@@ -10,4 +10,9 @@ class PagesController extends Controller
     public function showRegisterPage(){
         return view('backend.register');
     }
+
+    // Login Page
+    public function showLoginPage(){
+        return view('backend.login');
+    }
 }
