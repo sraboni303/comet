@@ -42,7 +42,7 @@
                             </div>
                             <!-- /Social Login -->
 
-                            <div class="text-center dont-have">Don’t have an account? <a href="">Register</a></div>
+                            <div class="text-center dont-have">Don’t have an account? <a href="{{ route('register.backend') }}">Register</a></div>
                         </div>
                     </div>
                 </div>

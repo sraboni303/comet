@@ -54,7 +54,7 @@
                             </div>
                             <!-- /Social Login -->
 
-                            <div class="text-center dont-have">Already have an account? <a href="">Login</a></div>
+                            <div class="text-center dont-have">Already have an account? <a href="{{ route('login.backend') }}">Login</a></div>
                         </div>
                     </div>
                 </div>
