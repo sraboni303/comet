@@ -120,7 +120,7 @@
                             <p class="text-muted mb-0">administrator</p>
                         </div>
                     </div>
-                    <a class="dropdown-item" href="profile.html">My Profile</a>
+                    <a class="dropdown-item" href="{{ route('profile.backend') }}">My Profile</a>
                     <a class="dropdown-item" href="settings.html">Settings</a>
                     <a class="dropdown-item logout_btn" href="{{ route('logout.backend') }}">Logout</a>
                 </div>

@@ -20,4 +20,9 @@ class PagesController extends Controller
     public function showLoginPage(){
         return view('backend.login');
     }
+
+    // Role Page
+    public function showRolePage(){
+        return view('backend.role');
+    }
 }

@@ -18,7 +18,12 @@
                 <li>
                     <a href=""><i class="fe fe-document"></i> <span> Categories </a>
                 </li>
-                <li><a href=""><i class="fe fe-document"></i> <span>  Tags </a></li>
+                <li>
+                    <a href=""><i class="fe fe-document"></i> <span>  Tags </a>
+                </li>
+                <li>
+                    <a href="{{ route('role.backend') }}"><i class="fe fe-document"></i> <span>  Roles </a>
+                </li>
 
             </ul>
         </div>
