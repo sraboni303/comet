@@ -15,7 +15,7 @@
                             <p class="account-subtitle">Access to our dashboard</p>
 
                             <!-- Form -->
-                            <form action="" method="POST">
+                            <form action="{{ route('logedin.backend') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <input name="login_info" class="form-control" type="text" placeholder="Email /Phone Number/ Username">

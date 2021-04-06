@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
@@ -26,4 +27,4 @@ Route::get('/register', [PagesController::class, 'showRegisterPage'])->name('reg
 Route::get('/login', [PagesController::class, 'showLoginPage'])->name('login.backend');
 
 Route::post('/registered', [RegisterController::class, 'register'])->name('registered.backend');
-
+Route::post('/logedin', [LoginController::class, 'login'])->name('logedin.backend');
