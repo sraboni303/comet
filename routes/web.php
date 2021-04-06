@@ -28,3 +28,4 @@ Route::get('/login', [PagesController::class, 'showLoginPage'])->name('login.bac
 
 Route::post('/registered', [RegisterController::class, 'register'])->name('registered.backend');
 Route::post('/logedin', [LoginController::class, 'login'])->name('logedin.backend');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout.backend');

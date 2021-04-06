@@ -58,4 +58,16 @@ class LoginController extends Controller
         request()->merge([$name => $login_info]);
         return $name;
     }
+
+
+    /**
+     * The user has logged out of the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return mixed
+     */
+    protected function loggedOut($request)
+    {
+        return redirect('/login');
+    }
 }

@@ -123,6 +123,9 @@
                     <a class="dropdown-item" href="profile.html">My Profile</a>
                     <a class="dropdown-item" href="settings.html">Settings</a>
                     <a class="dropdown-item logout_btn" href="">Logout</a>
+                    <form action="{{ route('logout.backend') }}" method="POST" id="logout_form">
+                        @csrf
+                    </form>
 
                 </div>
             </li>
