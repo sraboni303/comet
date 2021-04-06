@@ -8,7 +8,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Notifications\AccountConfirmationNotification;
 
 class RegisterController extends Controller
 {
@@ -85,6 +87,8 @@ class RegisterController extends Controller
      */
     protected function registered($request, $user)
     {
+        Notification::send($user, new AccountConfirmationNotification($user));
+
         Auth::logout();
         return redirect('/login');
     }
