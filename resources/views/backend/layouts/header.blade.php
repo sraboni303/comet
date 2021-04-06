@@ -116,17 +116,13 @@
                             <img src="{{ URL::to('backend/assets/img/profiles/avatar-01.jpg') }}" alt="User Image" class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
-                            <h6>Ryan Taylor</h6>
-                            <p class="text-muted mb-0">backendistrator</p>
+                            <h6>{{ Auth::user()->name }}</h6>
+                            <p class="text-muted mb-0">administrator</p>
                         </div>
                     </div>
                     <a class="dropdown-item" href="profile.html">My Profile</a>
                     <a class="dropdown-item" href="settings.html">Settings</a>
-                    <a class="dropdown-item logout_btn" href="">Logout</a>
-                    <form action="{{ route('logout.backend') }}" method="POST" id="logout_form">
-                        @csrf
-                    </form>
-
+                    <a class="dropdown-item logout_btn" href="{{ route('logout.backend') }}">Logout</a>
                 </div>
             </li>
             <!-- /User Menu -->

@@ -22,10 +22,10 @@ use App\Http\Controllers\PagesController;
 
 
 // General Routes
-Route::get('/', [PagesController::class, 'showIndexPage'])->name('index.backend');
+Route::get('/dashboard', [PagesController::class, 'showIndexPage'])->name('index.backend');
 Route::get('/register', [PagesController::class, 'showRegisterPage'])->name('register.backend');
 Route::get('/login', [PagesController::class, 'showLoginPage'])->name('login.backend');
 
 Route::post('/registered', [RegisterController::class, 'register'])->name('registered.backend');
 Route::post('/logedin', [LoginController::class, 'login'])->name('logedin.backend');
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout.backend');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout.backend');
