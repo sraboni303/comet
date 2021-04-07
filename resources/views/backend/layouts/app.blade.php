@@ -52,6 +52,7 @@
 		<script  src="{{ asset('backend/assets/js/custom/category.js') }}"></script>
 		<script  src="{{ asset('backend/assets/js/custom/tag.js') }}"></script>
 		<script  src="{{ asset('backend/assets/js/custom/posts.js') }}"></script>
+		<script  src="{{ asset('backend/assets/js/custom/edit_profile.js') }}"></script>
 
     </body>
 </html>

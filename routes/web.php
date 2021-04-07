@@ -19,6 +19,6 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout.backend'
 Route::get('/role', [PagesController::class, 'showRolePage'])->name('role.backend');
 
 // Profile
-Route::get('/profile', [ProfileController::class, 'showProfilePage'])->name('profile.backend');
-
+Route::get('/user-profile', [ProfileController::class, 'showUserProfile'])->name('user-profile');
+Route::put('/user-profile-update', [ProfileController::class, 'update']);
 

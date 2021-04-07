@@ -33,7 +33,7 @@
                             <div class="row align-items-center">
                                 <div class="col-auto profile-image">
                                     <a href="#">
-                                        <img class="rounded-circle" alt="User Image" src="backend/assets/img/profiles/avatar-01.jpg">
+                                        <img class="rounded-circle" alt="User Image" src="{{ URL::to('') }}/media/users/{{ $user->photo }}">
                                     </a>
                                 </div>
                                 <div class="col ml-md-n2 profile-user-info">
@@ -45,7 +45,7 @@
                                 <div class="col-auto profile-btn">
 
                                     <a href="#" class="btn btn-primary">
-                                        Edit
+                                        Change Profile Picture
                                     </a>
                                 </div>
                             </div>
@@ -72,7 +72,7 @@
                                             <div class="card-body">
                                                 <h5 class="card-title d-flex justify-content-between">
                                                     <span>Personal Details</span>
-                                                    <a class="edit-link" data-toggle="modal" href="#edit_personal_details"><i class="fa fa-edit mr-1"></i>Edit</a>
+                                                    <a class="edit-link" href="#"><i class="fa fa-edit mr-1"></i>Edit</a>
                                                 </h5>
                                                 <div class="row">
                                                     <p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Name</p>
@@ -104,71 +104,33 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form>
+                                                        <form id="edit_profile_form" method="POST">
+                                                            @csrf
+                                                            @method('PUT')
+                                                            <input type="hidden" name="get_id" value="">
                                                             <div class="row form-row">
-                                                                <div class="col-12 col-sm-6">
+                                                                <div class="col-12">
                                                                     <div class="form-group">
-                                                                        <label>First Name</label>
-                                                                        <input type="text" class="form-control" value="John">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-12 col-sm-6">
-                                                                    <div class="form-group">
-                                                                        <label>Last Name</label>
-                                                                        <input type="text" class="form-control" value="Doe">
+                                                                        <label>Name</label>
+                                                                        <input name="name" type="text" class="form-control" value="{{ $user->name }}">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-12">
                                                                     <div class="form-group">
-                                                                        <label>Date of Birth</label>
-                                                                        <div class="cal-icon">
-                                                                            <input type="text" class="form-control" value="24-07-1983">
-                                                                        </div>
+                                                                        <label>Username</label>
+                                                                        <input name="username" type="text" class="form-control" value="{{ $user->username }}">
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-12 col-sm-6">
+                                                                <div class="col-12">
                                                                     <div class="form-group">
                                                                         <label>Email ID</label>
-                                                                        <input type="email" class="form-control" value="johndoe@example.com">
+                                                                        <input name="email" type="email" class="form-control" value="{{ $user->email }}">
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-12 col-sm-6">
+                                                                <div class="col-12">
                                                                     <div class="form-group">
                                                                         <label>Mobile</label>
-                                                                        <input type="text" value="+1 202-555-0125" class="form-control">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-12">
-                                                                    <h5 class="form-title"><span>Address</span></h5>
-                                                                </div>
-                                                                <div class="col-12">
-                                                                    <div class="form-group">
-                                                                    <label>Address</label>
-                                                                        <input type="text" class="form-control" value="4663 Agriculture Lane">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-12 col-sm-6">
-                                                                    <div class="form-group">
-                                                                        <label>City</label>
-                                                                        <input type="text" class="form-control" value="Miami">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-12 col-sm-6">
-                                                                    <div class="form-group">
-                                                                        <label>State</label>
-                                                                        <input type="text" class="form-control" value="Florida">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-12 col-sm-6">
-                                                                    <div class="form-group">
-                                                                        <label>Zip Code</label>
-                                                                        <input type="text" class="form-control" value="22434">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-12 col-sm-6">
-                                                                    <div class="form-group">
-                                                                        <label>Country</label>
-                                                                        <input type="text" class="form-control" value="United States">
+                                                                        <input name="phone_number" type="text" value="{{ $user->phone_number }}" class="form-control">
                                                                     </div>
                                                                 </div>
                                                             </div>

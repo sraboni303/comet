@@ -108,19 +108,19 @@
             <!-- User Menu -->
             <li class="nav-item dropdown has-arrow">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                    <span class="user-img"><img class="rounded-circle" src="{{ URL::to('backend/assets/img/profiles/avatar-01.jpg') }}" width="31" alt="Ryan Taylor"></span>
+                    <span class="user-img"><img class="rounded-circle" src="{{ URL::to('') }}/media/users/{{ Auth::user()->photo }}" width="31" alt="Ryan Taylor"></span>
                 </a>
                 <div class="dropdown-menu">
                     <div class="user-header">
                         <div class="avatar avatar-sm">
-                            <img src="{{ URL::to('backend/assets/img/profiles/avatar-01.jpg') }}" alt="User Image" class="avatar-img rounded-circle">
+                            <img src="{{ URL::to('') }}/media/users/{{ Auth::user()->photo }}" alt="User Image" class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
                             <h6>{{ Auth::user()->name }}</h6>
                             <p class="text-muted mb-0">administrator</p>
                         </div>
                     </div>
-                    <a class="dropdown-item" href="{{ route('profile.backend') }}">My Profile</a>
+                    <a class="dropdown-item" href="{{ route('user-profile') }}">My Profile</a>
                     <a class="dropdown-item" href="settings.html">Settings</a>
                     <a class="dropdown-item logout_btn" href="{{ route('logout.backend') }}">Logout</a>
                 </div>
