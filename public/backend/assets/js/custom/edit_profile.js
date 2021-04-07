@@ -60,9 +60,24 @@
                             title : 'Invalid Password',
                         });
                     }
-                    
+
                 }
             });
+        });
+
+
+        // Change Profile Picture
+        $(document).on('click', '#change_btn', function(e){
+            e.preventDefault();
+            $('#change_modal').modal('show');
+        });
+
+        $(document).on('change', '#profile_photo', function(e){
+
+            let file_url = URL.createObjectURL(e.target.files[0]);
+            $('.card-img-top').attr('src', file_url);
+
+
         });
 
 

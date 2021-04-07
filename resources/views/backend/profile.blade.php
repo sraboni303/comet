@@ -43,10 +43,22 @@
                                     <div class="about-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
                                 </div>
                                 <div class="col-auto profile-btn">
+                                    <a id="change_btn" href="#" class="btn btn-danger">Change Profile Picture</a>
+                                </div>
 
-                                    <a href="#" class="btn btn-primary">
-                                        Change Profile Picture
-                                    </a>
+                                {{-- Change Profile Picture Modal --}}
+                                <div id="change_modal" class="modal fade">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content text-center">
+                                            <div class="card">
+                                                <img src="{{ URL::to('') }}/media/users/avatar.png" class="card-img-top mt-4 mx-auto" alt="">
+                                                <div class="card-body">
+                                                  <input type="file" id="profile_photo" style="display: none">
+                                                  <label class="btn btn-block btn-success" style="cursor: pointer" for="profile_photo">Browse Photo</label>
+                                                </div>
+                                              </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
