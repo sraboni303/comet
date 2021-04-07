@@ -159,18 +159,20 @@
                                         <h5 class="card-title">Change Password</h5>
                                         <div class="row">
                                             <div class="col-md-10 col-lg-6">
-                                                <form>
+                                                <form id="change_password_form" method="POST">
+                                                    @csrf
+                                                    @method('PUT')
                                                     <div class="form-group">
                                                         <label>Old Password</label>
-                                                        <input type="password" class="form-control">
+                                                        <input name="old_password" type="password" class="form-control">
                                                     </div>
                                                     <div class="form-group">
                                                         <label>New Password</label>
-                                                        <input type="password" class="form-control">
+                                                        <input name="new_password" type="password" class="form-control">
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Confirm Password</label>
-                                                        <input type="password" class="form-control">
+                                                        <input name="confirm_password" type="password" class="form-control">
                                                     </div>
                                                     <button class="btn btn-primary" type="submit">Save Changes</button>
                                                 </form>

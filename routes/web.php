@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProfileController;
+use Symfony\Component\HttpKernel\Profiler\Profile;
 
 // General Routes
 Route::get('/dashboard', [PagesController::class, 'showIndexPage'])->name('index.backend');
@@ -21,4 +22,5 @@ Route::get('/role', [PagesController::class, 'showRolePage'])->name('role.backen
 // Profile
 Route::get('/user-profile', [ProfileController::class, 'showUserProfile'])->name('user-profile');
 Route::put('/user-profile-update', [ProfileController::class, 'update']);
+Route::put('/change-password', [ProfileController::class, 'changePassword']);
 
