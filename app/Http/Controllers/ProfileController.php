@@ -45,4 +45,29 @@ class ProfileController extends Controller
         }
 
     }
+
+
+
+    // Change Photo
+    public function changePhoto(Request $request){
+
+        $photo = '';
+        if($request->hasFile('photo')){
+            $file = $request->file('photo');
+            $photo = md5(time().rand()) . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('media/users'), $photo);
+
+            if(file_exists('media/users/' . $request->input('old_photo'))){
+                unlink('media/users/'. $request->input('old_photo'));
+            }
+
+        }else{
+            $photo = $request->input('old_photo');
+        }
+
+        $user = User::find(auth()->user()->id);
+        $user->photo = $photo;
+        $user->update();
+        return true;
+    }
 }

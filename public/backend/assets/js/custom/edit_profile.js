@@ -66,21 +66,33 @@
         });
 
 
-        // Change Profile Picture
+        // Change Profile Picture Model Show
         $(document).on('click', '#change_btn', function(e){
             e.preventDefault();
             $('#change_modal').modal('show');
+
+            // Preview Uploaded Image
+            $(document).on('change', '#profile_photo', function(e){
+                let file_url = URL.createObjectURL(e.target.files[0]);
+                $('.card-img-top').attr('src', file_url);
+            });
         });
 
-        $(document).on('change', '#profile_photo', function(e){
-
-            let file_url = URL.createObjectURL(e.target.files[0]);
-            $('.card-img-top').attr('src', file_url);
 
 
+        // Change Profile Picture Form Submit
+        $(document).on('submit', '#image_update_form', function(e){
+            e.preventDefault();
+            $.ajax({
+                url : '/change-photo',
+                method : 'POST',
+                data : new FormData(this),
+                processData: false,
+                contentType : false,
+                success : function(output){
+                }
+            });
         });
-
-
 
 
 

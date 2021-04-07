@@ -50,13 +50,22 @@
                                 <div id="change_modal" class="modal fade">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content text-center">
-                                            <div class="card">
-                                                <img src="{{ URL::to('') }}/media/users/avatar.png" class="card-img-top mt-4 mx-auto" alt="">
-                                                <div class="card-body">
-                                                  <input type="file" id="profile_photo" style="display: none">
-                                                  <label class="btn btn-block btn-success" style="cursor: pointer" for="profile_photo">Browse Photo</label>
+                                            <form id="image_update_form" method="POST" enctype="multipart/form-data">
+                                                @csrf
+                                                @method('PUT')
+                                                <div class="card">
+                                                    <input type="hidden" name="old_photo" value="{{ Auth::user()->photo }}">
+                                                    <img src="{{ URL::to('') }}/media/users/{{ Auth::user()->photo }}" class="card-img-top mt-4 mx-auto" alt="">
+                                                    <div class="card-body">
+                                                      <input type="file" id="profile_photo" style="display: none" name="photo">
+                                                      <label class="btn btn-success" style="cursor: pointer" for="profile_photo">Browse Photo</label>
+                                                    </div>
+                                                    <div class="card-footer">
+                                                        <input type="submit" class="btn btn-block btn-info" style="cursor: pointer">
+                                                    </div>
                                                 </div>
-                                              </div>
+
+                                            </form>
                                         </div>
                                     </div>
                                 </div>

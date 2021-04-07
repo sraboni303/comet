@@ -23,4 +23,5 @@ Route::get('/role', [PagesController::class, 'showRolePage'])->name('role.backen
 Route::get('/user-profile', [ProfileController::class, 'showUserProfile'])->name('user-profile');
 Route::put('/user-profile-update', [ProfileController::class, 'update']);
 Route::put('/change-password', [ProfileController::class, 'changePassword']);
+Route::put('/change-photo', [ProfileController::class, 'changePhoto']);
 
