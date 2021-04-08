@@ -32,3 +32,4 @@ Route::put('/change-photo', [ProfileController::class, 'changePhoto']);
 
 // Tag Routes
 Route::get('/tags', [TagController::class, 'showPage'])->name('tag.backend');
+Route::post('/tag-add', [TagController::class, 'store']);
