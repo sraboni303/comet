@@ -5,6 +5,8 @@ use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\TagController;
 use Symfony\Component\HttpKernel\Profiler\Profile;
 
 // General Routes
@@ -17,7 +19,10 @@ Route::post('/logedin', [LoginController::class, 'login'])->name('logedin.backen
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout.backend');
 
 // Role Routes
-Route::get('/role', [PagesController::class, 'showRolePage'])->name('role.backend');
+// Route::prefix('/role')->group(function () {
+//     Route::get('/', [RoleController::class, 'showRolePage'])->name('role.backend');
+//     Route::post('/store', [RoleController::class, 'store']);
+// });
 
 // Profile
 Route::get('/user-profile', [ProfileController::class, 'showUserProfile'])->name('user-profile');
@@ -25,3 +30,5 @@ Route::put('/user-profile-update', [ProfileController::class, 'update']);
 Route::put('/change-password', [ProfileController::class, 'changePassword']);
 Route::put('/change-photo', [ProfileController::class, 'changePhoto']);
 
+// Tag Routes
+Route::get('/tags', [TagController::class, 'showPage'])->name('tag.backend');

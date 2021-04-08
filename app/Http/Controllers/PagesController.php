@@ -21,8 +21,4 @@ class PagesController extends Controller
         return view('backend.login');
     }
 
-    // Role Page
-    public function showRolePage(){
-        return view('backend.role');
-    }
 }

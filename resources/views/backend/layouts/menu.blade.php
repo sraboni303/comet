@@ -4,25 +4,25 @@
         <div id="sidebar-menu" class="sidebar-menu">
             <ul>
                 <li>
-                    <a href=""><i class="fe fe-home"></i> <span> Dashboard</span></a>
+                    <a href="#"><i class="fe fe-home"></i> <span> Dashboard</span></a>
                 </li>
                 <li>
-                    <a href=""> <i class="fe fe-document"></i> <span> Create Post</a>
+                    <a href="#"> <i class="fe fe-document"></i> <span> Create Post</a>
                 </li>
                 <li>
-                    <a href=""> <i class="fe fe-document"></i> <span> Posts List</a>
+                    <a href="#"> <i class="fe fe-document"></i> <span> Posts List</a>
                 </li>
                 <li>
-                    <a href=""> <i class="fe fe-document"></i> <span> Trashes</a>
+                    <a href="#"> <i class="fe fe-document"></i> <span> Trashes</a>
                 </li>
                 <li>
-                    <a href=""><i class="fe fe-document"></i> <span> Categories </a>
+                    <a href="#"><i class="fe fe-document"></i> <span> Categories </a>
                 </li>
                 <li>
-                    <a href=""><i class="fe fe-document"></i> <span>  Tags </a>
+                    <a href="{{ route('tag.backend') }}"><i class="fe fe-document"></i> <span>  Tags </a>
                 </li>
                 <li>
-                    <a href="{{ route('role.backend') }}"><i class="fe fe-document"></i> <span>  Roles </a>
+                    <a href="#"><i class="fe fe-document"></i> <span>  Roles </a>
                 </li>
 
             </ul>
