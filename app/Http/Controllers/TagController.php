@@ -46,7 +46,7 @@ class TagController extends Controller
                                 <a id="edit_role_btn" class="btn btn-sm bg-success-light" href="#">
                                     <i class="fe fe-pencil"></i> Edit
                                 </a>
-                                <a  data-toggle="modal" href="#delete_modal" class="btn btn-sm bg-danger-light">
+                                <a delete_id="'. $record->id .'" href="#" class="btn btn-sm bg-danger-light delete_btn">
                                     <i class="fe fe-trash"></i> Delete
                                 </a>
                             </div>
@@ -57,4 +57,30 @@ class TagController extends Controller
         }
         return $output;
     }
+
+
+
+    // delete
+    public function delete($id){
+        $find = Tag::find($id);
+        $find->delete();
+        return true;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
+
+

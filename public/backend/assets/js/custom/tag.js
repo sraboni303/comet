@@ -39,6 +39,38 @@
 
 
 
+        // delete
+        $(document).on('click', '.delete_btn', function(e){
+            e.preventDefault();
+            let id = $(this).attr('delete_id');
+            
+            swal({
+                icon : 'warning',
+                title : 'Delete',
+                text : 'Are You Sure?',
+                buttons : ['Cancel', 'Delete'],
+                dangerMode : true,
+            }).then((willDelete) => {
+                if(willDelete){
+                    $.ajax({
+                        url : '/tag-delete/' + id,
+                        success : function(output){
+                            if(output){
+                                getRecords();
+                                swal({
+                                    icon : 'success',
+                                    title : 'Deleted',
+                                    text : 'Record Deleted Successfully...',
+                                });
+                            }
+                        }
+                    });
+                }
+            });
+        });
+
+
+
         // // Get Records
         // function getRecords(){
         //     $.ajax({
