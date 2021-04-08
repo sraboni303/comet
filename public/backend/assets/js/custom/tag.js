@@ -1,6 +1,18 @@
 (function($){
     $(document).ready(function(){
 
+        // get records
+        function getRecords(){
+            $.ajax({
+                url: '/tag/get-records',
+                success: function(output){
+                    $('#tag_body').html(output);
+                }
+            });
+        }
+        getRecords();
+
+
         // add modal show
         $(document).on('click', '#add_tag_btn', function(e){
             e.preventDefault();
@@ -19,31 +31,11 @@
                 success: function(){
                     $('#add_tag_form')[0].reset();
                     $('#add_tag_modal').modal('hide');
-                    // getRecords();
+                    getRecords();
                 }
             });
 
         });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
