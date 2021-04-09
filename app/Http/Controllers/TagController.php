@@ -43,7 +43,7 @@ class TagController extends Controller
                         </td>';
             $output .= '<td class="text-right">
                             <div class="actions">
-                                <a id="edit_role_btn" class="btn btn-sm bg-success-light" href="#">
+                                <a edit_id="'. $record->id .'" class="btn btn-sm bg-success-light edit_btn" href="#">
                                     <i class="fe fe-pencil"></i> Edit
                                 </a>
                                 <a delete_id="'. $record->id .'" href="#" class="btn btn-sm bg-danger-light delete_btn">
@@ -71,6 +71,17 @@ class TagController extends Controller
         }
         $user->update();
         return true;
+    }
+
+
+
+    // Edit
+    public function edit($id){
+        $user = Tag::find($id);
+        return [
+            'id' => $user->id,
+            'name' => $user->name,
+        ];
     }
 
 
