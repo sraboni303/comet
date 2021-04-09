@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProfileController;
@@ -38,3 +39,13 @@ Route::get('/tag-delete/{id}', [TagController::class, 'delete']);
 Route::get('/tag-status/{id}', [TagController::class, 'status']);
 Route::get('/tag-edit/{id}', [TagController::class, 'edit']);
 Route::put('/tag-update', [TagController::class, 'update']);
+
+
+// Category Routes
+Route::get('/categories', [CategoryController::class, 'showPage'])->name('category.backend');
+Route::post('/category-store', [CategoryController::class, 'store']);
+Route::get('/category-all', [CategoryController::class, 'getRecords']);
+Route::get('/category-status/{id}', [CategoryController::class, 'status']);
+Route::get('/category-edit/{id}', [CategoryController::class, 'edit']);
+Route::put('/category-update', [CategoryController::class, 'update']);
+Route::get('/category-delete/{id}', [CategoryController::class, 'delete']);

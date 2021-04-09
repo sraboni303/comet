@@ -12,10 +12,10 @@
                 <div class="page-header">
                     <div class="row">
                         <div class="col-sm-7 col-auto">
-                            <h3 class="page-title">Tags</h3>
+                            <h3 class="page-title">Categories</h3>
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                                <li class="breadcrumb-item active">Tags</li>
+                                <li class="breadcrumb-item active">Categories</li>
                             </ul>
                         </div>
                         <div class="col-sm-5 col">
@@ -24,6 +24,7 @@
                     </div>
                 </div>
                 <!-- /Page Header -->
+
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card">
@@ -39,7 +40,7 @@
                                                 <th class="text-right">Actions</th>
                                             </tr>
                                         </thead>
-                                        <tbody id="tag_body">
+                                        <tbody id="category_body">
 
                                         </tbody>
                                     </table>
@@ -50,28 +51,25 @@
                 </div>
             </div>
         </div>
-        <!-- /Page Wrapper -->
     </div>
 
-
-
     <!-- Add Modal -->
-    <div class="modal fade" id="add_tag_modal" aria-hidden="true" role="dialog">
+    <div class="modal fade" id="add_category_modal" aria-hidden="true" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document" >
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Add Tags</h5>
+                    <h5 class="modal-title">Add Category</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="add_tag_form" method="POST">
+                    <form id="add_category_form" method="POST">
                         @csrf
                         <div class="row form-row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label>Tag Name</label>
+                                    <label>Category Name</label>
                                     <input name="name" type="text" class="form-control">
                                 </div>
                             </div>
@@ -85,26 +83,25 @@
     <!-- /ADD Modal -->
 
 
-
     <!-- Edit Modal -->
-    <div class="modal fade" id="edit_tag_modal" aria-hidden="true" role="dialog">
+    <div class="modal fade" id="edit_cat_modal" aria-hidden="true" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document" >
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Add Tags</h5>
+                    <h5 class="modal-title">Add Category</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="edit_tag_form" method="POST">
+                    <form id="edit_cat_form" method="POST">
                         @csrf
                         @method('PUT')
                         <input type="hidden" name="get_id">
                         <div class="row form-row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label>Tag Name</label>
+                                    <label>Category Name</label>
                                     <input name="name" type="text" class="form-control">
                                 </div>
                             </div>
@@ -116,4 +113,10 @@
         </div>
     </div>
     <!-- /Edit Modal -->
+
+
+
+
+
+
 @endsection

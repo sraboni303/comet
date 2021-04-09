@@ -4,9 +4,9 @@
         // Show Records
         function getRecords(){
             $.ajax({
-                url : '/admin/category/getrecords',
+                url : '/category-all',
                 success : function(output){
-                    $('#cat_body').html(output);
+                    $('#category_body').html(output);
                 }
             });
         }
@@ -15,87 +15,68 @@
 
 
         // Show Create Modal
-        $(document).on('click', '#create_cat_btn', function(event){
+        $(document).on('click', '#add_category_btn', function(event){
             event.preventDefault();
-            $('#create_cat_modal').modal('show');
+            $('#add_category_modal').modal('show');
         });
 
 
         // Submit Create Form
-        $('#create_cat_form').submit(function(event){
+        $('#add_category_form').submit(function(event){
             event.preventDefault();
             $.ajax({
-                url : '/admin/category/store',
+                url : '/category-store',
                 method : 'POST',
                 data : new FormData(this),
                 contentType : false,
                 processData : false,
                 success : function(output){
-                    $('#create_cat_form')[0].reset();
-                    $('#create_cat_modal').modal('hide');
+                    $('#add_category_form')[0].reset();
+                    $('#add_category_modal').modal('hide');
                     getRecords();
                 }
             });
         });
 
 
-        // Status
-        $(document).on('click', '.cat_check', function(event){
-            event.preventDefault();
-            let checked = $(this).attr('checked');
-            let cat_id = $(this).attr('cat_id');
-
-
-            if( checked == 'checked'){
-                $.ajax({
-                    url : '/admin/category/active/'+cat_id,
-                    success : function(output){
-                        getRecords();
-                    }
-                });
-            }else{
-                $.ajax({
-                    url : '/admin/category/inactive/'+cat_id,
-                    success : function(){
-                        getRecords();
-                    }
-                });
-            }
+        // status
+        $(document).on('click', '.cat_check', function(e){
+            e.preventDefault();
+            let id = $(this).attr('cat_id');
+            $.ajax({
+                url : '/category-status/' + id,
+                success: function(){
+                    getRecords();
+                }
+            });
         });
 
 
-
-
-        // Show Edit Modal
-        $(document).on('click', '.edit_cat_btn', function(event){
-
-            event.preventDefault();
-            let cat_id = $(this).attr('edit_cat_id');
-
+        // Edit
+        $(document).on('click', '.edit_btn', function(e){
+            e.preventDefault();
+            let id = $(this).attr('edit_id');
             $.ajax({
-                url : '/admin/category/edit/'+cat_id,
+                url: '/category-edit/' + id,
                 success: function(output){
-                    $('#edit_cat_form input[name=name]').val(output.name);
-                    $('#edit_cat_form input[name=get_id]').val(output.id);
+                    $('#edit_cat_form input[name="get_id"]').val(output.id);
+                    $('#edit_cat_form input[name="name"]').val(output.name);
                     $('#edit_cat_modal').modal('show');
                 }
             });
-
         });
 
 
-
-        // Update
-        $(document).on('submit', '#edit_cat_form', function(event){
-            event.preventDefault();
-
+        // update
+        $(document).on('submit', '#edit_cat_form', function(e){
+            e.preventDefault();
             $.ajax({
-                url : '/admin/category/update',
-                method : 'POST',
-                data : new FormData(this),
-                contentType : false,
-                processData : false,
-                success : function(output){
+                url: '/category-update',
+                method: 'POST',
+                data: new FormData(this),
+                contentType: false,
+                processData: false,
+                success: function(){
                     getRecords();
                     $('#edit_cat_modal').modal('hide');
                 }
@@ -103,11 +84,10 @@
         });
 
 
-
-        // Delete
-        $(document).on('click', '.delete_cat_btn', function(event){
-            event.preventDefault();
-            let id = $(this).attr('delete_cat_id');
+        // delete
+        $(document).on('click', '.cat_delete_btn', function(e){
+            e.preventDefault();
+            let id = $(this).attr('cat_delete_id');
 
             swal({
                 icon : 'warning',
@@ -115,59 +95,24 @@
                 text : 'Are You Sure?',
                 buttons : ['Cancel', 'Delete'],
                 dangerMode : true,
-            }).then( (willDelete) => {
+            }).then((willDelete) => {
                 if(willDelete){
-
                     $.ajax({
-                        url : '/admin/category/delete/' + id,
+                        url : '/category-delete/' + id,
                         success : function(output){
                             if(output){
-
                                 getRecords();
                                 swal({
                                     icon : 'success',
                                     title : 'Deleted',
-                                    text : 'Data Deleted Successfully !!'
+                                    text : 'Record Deleted Successfully...',
                                 });
-
                             }
-
                         }
                     });
-
                 }
             });
-
-
         });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     });

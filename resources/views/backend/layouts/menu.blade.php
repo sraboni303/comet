@@ -16,7 +16,7 @@
                     <a href="#"> <i class="fe fe-document"></i> <span> Trashes</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fe fe-document"></i> <span> Categories </a>
+                    <a href="{{ route('category.backend') }}"><i class="fe fe-document"></i> <span> Categories </a>
                 </li>
                 <li>
                     <a href="{{ route('tag.backend') }}"><i class="fe fe-document"></i> <span>  Tags </a>
