@@ -99,6 +99,7 @@
                 <div class="modal-body">
                     <form id="edit_tag_form" method="POST">
                         @csrf
+                        @method('PUT')
                         <input type="hidden" name="get_id">
                         <div class="row form-row">
                             <div class="col-12">

@@ -85,6 +85,17 @@ class TagController extends Controller
     }
 
 
+    // update
+    public function update(Request $request){
+        $id = $request->input('get_id');
+        $user = Tag::find($id);
+        $user->name = $request->input('name');
+        $user->slug = Str::slug($request->input('name'));
+        $user->update();
+        return true;
+    }
+
+
 
     // delete
     public function delete($id){

@@ -37,3 +37,4 @@ Route::get('/tag/get-records', [TagController::class, 'getRecords']);
 Route::get('/tag-delete/{id}', [TagController::class, 'delete']);
 Route::get('/tag-status/{id}', [TagController::class, 'status']);
 Route::get('/tag-edit/{id}', [TagController::class, 'edit']);
+Route::put('/tag-update', [TagController::class, 'update']);

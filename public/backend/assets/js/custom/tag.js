@@ -99,59 +99,21 @@
         });
 
 
-        // // Update
-        // $(document).on('submit', '#edit_tag_form', function(event){
-        //     event.preventDefault();
-        //     $.ajax({
-        //         url : '/admin/tag/update',
-        //         method : 'POST',
-        //         data : new FormData(this),
-        //         contentType : false,
-        //         processData : false,
-        //         success : function(){
-        //             getRecords();
-        //             $('#edit_tag_modal').modal('hide');
-        //         }
-        //     });
-        // });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        // update
+        $(document).on('submit', '#edit_tag_form', function(e){
+            e.preventDefault();
+            $.ajax({
+                url: '/tag-update',
+                method: 'POST',
+                data: new FormData(this),
+                contentType: false,
+                processData: false,
+                success: function(){
+                    getRecords();
+                    $('#edit_tag_modal').modal('hide');
+                }
+            });
+        });
 
 
     });
