@@ -37,7 +37,7 @@ class TagController extends Controller
             $output .= '<td>'. $record->slug .'</td>';
             $output .= '<td>
                             <div class="status-toggle">
-                                <input type="checkbox" tag_id="" id="status_'.$i.'" class="check tag_check" '. ( $record->status == true ? "checked" : "") .'>
+                                <input type="checkbox" tag_id="'. $record->id .'" id="status_'.$i.'" class="check tag_check" '. ( $record->status == true ? "checked" : "") .'>
                                 <label for="status_'.$i.'" class="checktoggle">checkbox</label>
                             </div>
                         </td>';
@@ -56,6 +56,21 @@ class TagController extends Controller
             $i++;
         }
         return $output;
+    }
+
+
+
+    // Status
+    public function status($id){
+        $user = Tag::find($id);
+
+        if($user->status == true){
+            $user->status = false;
+        }else{
+            $user->status = true;
+        }
+        $user->update();
+        return true;
     }
 
 

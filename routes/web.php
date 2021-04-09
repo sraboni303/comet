@@ -35,3 +35,4 @@ Route::get('/tags', [TagController::class, 'showPage'])->name('tag.backend');
 Route::post('/tag-add', [TagController::class, 'store']);
 Route::get('/tag/get-records', [TagController::class, 'getRecords']);
 Route::get('/tag-delete/{id}', [TagController::class, 'delete']);
+Route::get('/tag-status/{id}', [TagController::class, 'status']);

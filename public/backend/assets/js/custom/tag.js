@@ -38,12 +38,25 @@
         });
 
 
+        // status
+        $(document).on('click', '.tag_check', function(e){
+            e.preventDefault();
+            let id = $(this).attr('tag_id');
+            $.ajax({
+                url : '/tag-status/' + id,
+                success: function(output){
+                    getRecords();
+                }
+            });
+        });
+
+
 
         // delete
         $(document).on('click', '.delete_btn', function(e){
             e.preventDefault();
             let id = $(this).attr('delete_id');
-            
+
             swal({
                 icon : 'warning',
                 title : 'Delete',
