@@ -24,6 +24,9 @@
                 <li>
                     <a href="#"><i class="fe fe-document"></i> <span>  Roles </a>
                 </li>
+                <li>
+                    <a href="{{ route('member.backend') }}"><i class="fe fe-document"></i> <span>  Members </a>
+                </li>
 
             </ul>
         </div>

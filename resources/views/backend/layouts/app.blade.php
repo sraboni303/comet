@@ -54,6 +54,7 @@
 		<script  src="{{ asset('backend/assets/js/custom/posts.js') }}"></script>
 		<script  src="{{ asset('backend/assets/js/custom/edit_profile.js') }}"></script>
 		<script  src="{{ asset('backend/assets/js/custom/role.js') }}"></script>
+		<script  src="{{ asset('backend/assets/js/custom/member.js') }}"></script>
 
     </body>
 </html>

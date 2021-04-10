@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\MemberController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProfileController;
@@ -49,3 +50,11 @@ Route::get('/category-status/{id}', [CategoryController::class, 'status']);
 Route::get('/category-edit/{id}', [CategoryController::class, 'edit']);
 Route::put('/category-update', [CategoryController::class, 'update']);
 Route::get('/category-delete/{id}', [CategoryController::class, 'delete']);
+
+
+// Member Routes
+Route::get('/members', [MemberController::class, 'showPage'])->name('member.backend');
+Route::post('/member-store', [MemberController::class, 'store']);
+Route::get('/member-all', [MemberController::class, 'all']);
+Route::get('/member-status/{id}', [MemberController::class, 'status']);
+Route::get('/member-delete/{id}', [MemberController::class, 'delete']);
