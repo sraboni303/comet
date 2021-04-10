@@ -22,7 +22,7 @@
                     <a href="{{ route('tag.backend') }}"><i class="fe fe-document"></i> <span>  Tags </a>
                 </li>
                 <li>
-                    <a href="#"><i class="fe fe-document"></i> <span>  Roles </a>
+                    <a href="{{ route('role.backend') }}"><i class="fe fe-document"></i> <span>  Roles </a>
                 </li>
                 <li>
                     <a href="{{ route('member.backend') }}"><i class="fe fe-document"></i> <span>  Members </a>

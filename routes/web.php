@@ -21,10 +21,13 @@ Route::post('/logedin', [LoginController::class, 'login'])->name('logedin.backen
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout.backend');
 
 // Role Routes
-// Route::prefix('/role')->group(function () {
-//     Route::get('/', [RoleController::class, 'showRolePage'])->name('role.backend');
-//     Route::post('/store', [RoleController::class, 'store']);
-// });
+Route::get('/role', [RoleController::class, 'showRolePage'])->name('role.backend');
+Route::post('/role-store', [RoleController::class, 'store']);
+Route::get('/role-all', [RoleController::class, 'all']);
+Route::get('/role-status/{id}', [RoleController::class, 'status']);
+Route::get('/role-delete/{id}', [RoleController::class, 'delete']);
+Route::get('/role-edit/{id}', [RoleController::class, 'edit']);
+Route::put('/role-update', [RoleController::class, 'update']);
 
 // Profile
 Route::get('/user-profile', [ProfileController::class, 'showUserProfile'])->name('user-profile');
