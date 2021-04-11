@@ -10,10 +10,10 @@
                     <a href="{{ route('create.post') }}"> <i class="fe fe-document"></i> <span> Create Post</a>
                 </li>
                 <li>
-                    <a href="#"> <i class="fe fe-document"></i> <span> Posts List</a>
+                    <a href="{{ route('list.posts') }}"> <i class="fe fe-document"></i> <span> Posts List </a>
                 </li>
                 <li>
-                    <a href="#"> <i class="fe fe-document"></i> <span> Trashes</a>
+                    <a href="{{ route('trashes.posts') }}"> <i class="fe fe-document"></i> <span> Trashes </a>
                 </li>
                 <li>
                     <a href="{{ route('category.backend') }}"><i class="fe fe-document"></i> <span> Categories </a>

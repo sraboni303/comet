@@ -79,4 +79,83 @@ class PostController extends Controller
         ]);
         return back();
     }
+
+
+    // Post List
+    public function postList(){
+        $all_data = Post::where('trash', false)->get();
+        $trash = Post::where('trash', true)->get()->count();
+        $published = Post::where('trash', false)->get()->count();
+        return view('backend.list-post', [
+            'all_data' => $all_data,
+            'trash' => $trash,
+            'published' => $published,
+        ]);
+    }
+
+    // Show Trashes
+    public function showTrashes(){
+        $data = Post::where('trash', true)->get();
+        $trash = Post::where('trash', true)->get()->count();
+        $published = Post::where('trash', false)->get()->count();
+        return view('backend.trash', [
+            'all_data' => $data,
+            'trash' => $trash,
+            'published' => $published,
+        ]);
+    }
+
+
+    // Status: active to inactive
+    public function inactive($id){
+        $status = Post::find($id);
+        $status->status = false;
+        $status->update();
+        return true;
+    }
+
+
+    // Status: inactive to active
+    public function active($id){
+        $status = Post::find($id);
+        $status->status = true;
+        $status->update();
+        return true;
+    }
+
+
+    // Trash
+    public function trash($id){
+
+        $trash = Post::find($id);
+
+        if($trash->trash == false){
+            $trash->trash = true;
+            $trash->update();
+        }
+
+        return back();
+    }
+    
+
+    // Untrash
+    public function untrash($id){
+
+        $untrash = Post::find($id);
+
+        if($untrash->trash == true){
+            $untrash->trash = false;
+            $untrash->update();
+        }
+        return back();
+    }
+
+    // Delete Parmanently
+    public function delete($id){
+        $delete = Post::find($id);
+        $delete->delete();
+        return back();
+    }
+
+
 }
