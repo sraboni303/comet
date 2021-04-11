@@ -7,7 +7,7 @@
                     <a href="#"><i class="fe fe-home"></i> <span> Dashboard</span></a>
                 </li>
                 <li>
-                    <a href="#"> <i class="fe fe-document"></i> <span> Create Post</a>
+                    <a href="{{ route('create.post') }}"> <i class="fe fe-document"></i> <span> Create Post</a>
                 </li>
                 <li>
                     <a href="#"> <i class="fe fe-document"></i> <span> Posts List</a>

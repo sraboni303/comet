@@ -82,9 +82,11 @@
                             <div class="col-12">
                                 <select class="custom-select" name="role">
                                     <option selected disabled>-Select Role-</option>
-                                    <option value="One">One</option>
-                                    <option value="Two">Two</option>
-                                    <option value="Three">Three</option>
+
+                                    @foreach ($roles as $role)
+                                        <option value="{{ $role->name }}">{{ $role->name }}</option>
+                                    @endforeach
+
                                 </select>
                             </div>
                             <div class="col-12">

@@ -65,102 +65,101 @@
         });
 
 
-        // Status
-        $(document).on('click', '.check', function(){
+        // // Status
+        // $(document).on('click', '.check', function(){
 
-            let id = $(this).attr('status_id');
-            let checked = $(this).attr('checked');
-
-
-            if(checked == 'checked'){
-                $.ajax({
-                    url : '/admin/posts/active/' + id,
-                    success : function(){
-
-                    }
-                });
-            }else{
-
-                $.ajax({
-                    url : '/admin/posts/inactive/' + id,
-                    success : function(){
-
-                    }
-                });
-            }
+        //     let id = $(this).attr('status_id');
+        //     let checked = $(this).attr('checked');
 
 
-        });
+        //     if(checked == 'checked'){
+        //         $.ajax({
+        //             url : '/backend/posts/active/' + id,
+        //             success : function(){
+
+        //             }
+        //         });
+        //     }else{
+
+        //         $.ajax({
+        //             url : '/admin/posts/inactive/' + id,
+        //             success : function(){
+
+        //             }
+        //         });
+        //     }
+
+        // });
 
 
-        // Edit
-        $(document).on('click', '.edit_btn', function(e){
-            let id = $(this).attr('edit_id');
-            $.ajax({
-                url : '/admin/posts/edit/' + id,
-                success : function(output){
-                    $('#edit_title').val(output.title);
-                    $('#edit_id').val(output.id);
-                }
-            });
-        });
+        // // Edit
+        // $(document).on('click', '.edit_btn', function(e){
+        //     let id = $(this).attr('edit_id');
+        //     $.ajax({
+        //         url : '/admin/posts/edit/' + id,
+        //         success : function(output){
+        //             $('#edit_title').val(output.title);
+        //             $('#edit_id').val(output.id);
+        //         }
+        //     });
+        // });
 
 
-        // Trash
-        $(document).on('click', '.trash', function(e){
-            e.preventDefault();
-            let id = $(this).attr('trash_id');
+        // // Trash
+        // $(document).on('click', '.trash', function(e){
+        //     e.preventDefault();
+        //     let id = $(this).attr('trash_id');
 
-            $.ajax({
-                url : '/admin/posts/trash/' + id,
-                success : function(output){
-                }
-            });
-        });
-
-
-        // Untrash
-        $(document).on('click', '.untrash', function(e){
-            e.preventDefault();
-            let id = $(this).attr('id');
-
-            $.ajax({
-                url : '/admin/posts/untrash/' + id,
-                success : function(output){
-
-                }
-            });
-        });
+        //     $.ajax({
+        //         url : '/admin/posts/trash/' + id,
+        //         success : function(output){
+        //         }
+        //     });
+        // });
 
 
-        // Delete Parmanently
-        $(document).on('click', '.delete', function(e){
-            e.preventDefault();
-            let id = $(this).attr('id');
+        // // Untrash
+        // $(document).on('click', '.untrash', function(e){
+        //     e.preventDefault();
+        //     let id = $(this).attr('id');
 
-            swal({
-                icon : 'warning',
-                title : 'Delete Parmanently',
-                text : 'Are You Sure?',
-                buttons : ['Cancel', 'Delete'],
-                dangerMode : true,
-            }).then( (willDelete) => {
-                if(willDelete){
-                    $.ajax({
-                        url : '/admin/posts/delete/' + id,
-                        success : function(output){
-                            if(output){
-                                swal({
-                                    icon : 'success',
-                                    title : 'Deleted',
-                                    text : 'Data Deleted Successfully',
-                                });
-                            }
-                        }
-                    });
-                }
-            });
-        });
+        //     $.ajax({
+        //         url : '/admin/posts/untrash/' + id,
+        //         success : function(output){
+
+        //         }
+        //     });
+        // });
+
+
+        // // Delete Parmanently
+        // $(document).on('click', '.delete', function(e){
+        //     e.preventDefault();
+        //     let id = $(this).attr('id');
+
+        //     swal({
+        //         icon : 'warning',
+        //         title : 'Delete Parmanently',
+        //         text : 'Are You Sure?',
+        //         buttons : ['Cancel', 'Delete'],
+        //         dangerMode : true,
+        //     }).then( (willDelete) => {
+        //         if(willDelete){
+        //             $.ajax({
+        //                 url : '/admin/posts/delete/' + id,
+        //                 success : function(output){
+        //                     if(output){
+        //                         swal({
+        //                             icon : 'success',
+        //                             title : 'Deleted',
+        //                             text : 'Data Deleted Successfully',
+        //                         });
+        //                     }
+        //                 }
+        //             });
+        //         }
+        //     });
+        // });
 
 
 

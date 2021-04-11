@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MemberController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TagController;
@@ -61,3 +62,19 @@ Route::post('/member-store', [MemberController::class, 'store']);
 Route::get('/member-all', [MemberController::class, 'all']);
 Route::get('/member-status/{id}', [MemberController::class, 'status']);
 Route::get('/member-delete/{id}', [MemberController::class, 'delete']);
+
+
+// Post Routes
+Route::get('/posts', [PostController::class, 'showPage'])->name('create.post');
+Route::post('/post-store', [PostController::class, 'store'])->name('store.posts');
+
+
+// Route::get('/', [PostController::class, 'index'])->name('index.posts');
+// Route::get('/create', [PostController::class, 'create'])->name('create.posts');
+// Route::get('/edit/{id}', [PostController::class, 'edit'])->name('edit.posts');
+// Route::get('/active/{id}', [PostController::class, 'active']);
+// Route::get('/inactive/{id}', [PostController::class, 'inactive']);
+// Route::get('/trashes', [PostController::class, 'showTrashes'])->name('trashes.posts');
+// Route::get('/trash/{id}', [PostController::class, 'trash'])->name('trash.posts');
+// Route::get('/untrash/{id}', [PostController::class, 'untrash'])->name('untrash.posts');
+// Route::get('/delete/{id}', [PostController::class, 'delete'])->name('delete.posts');

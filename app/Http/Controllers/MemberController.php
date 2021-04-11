@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Models\Member;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,10 @@ class MemberController extends Controller
 {
     // Show Page
     public function showPage(){
-        return view('backend.member');
+        $roles = Role::all()->where('status', true);
+        return view('backend.member', [
+            'roles' => $roles
+        ]);
     }
 
 
@@ -120,7 +124,7 @@ class MemberController extends Controller
     public function delete($id){
         $find = Member::find($id);
         $find->delete();
-        
+
         // remove deleted photo
         if(file_exists('media/members/' . $find->photo)){
             unlink('media/members/' . $find->photo);
