@@ -43,6 +43,7 @@
                                                 <th>#</th>
                                                 <th>Title</th>
                                                 <th>Author</th>
+                                                <th>Categories</th>
                                                 <th>Featured Type</th>
                                                 <th>Posted</th>
                                                 <th>Status</th>
@@ -59,6 +60,15 @@
                                                 <td>{{ $loop->index+1 }}</td>
                                                 <td>{{ $data->title }}</td>
                                                 <td>{{ $data->user->name }}</td>
+                                                <td>
+                                                    <ul>
+                                                        @foreach ($data->categories as $cat)
+                                                            <li>
+                                                                {{ $cat->name }}
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
+                                                </td>
                                                 <td>{{ $featured->type }}</td>
                                                 <td>{{ date('d M, Y', strtotime($data->created_at)) }}</td>
                                                 <td>
