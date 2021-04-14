@@ -84,6 +84,7 @@ class PostController extends Controller
         ]);
 
         $created->categories()->attach($request->input('category'));
+        $created->tags()->attach($request->input('tag'));
 
         return back();
     }

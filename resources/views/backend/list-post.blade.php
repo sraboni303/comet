@@ -44,6 +44,7 @@
                                                 <th>Title</th>
                                                 <th>Author</th>
                                                 <th>Categories</th>
+                                                <th>Tags</th>
                                                 <th>Featured Type</th>
                                                 <th>Posted</th>
                                                 <th>Status</th>
@@ -65,6 +66,15 @@
                                                         @foreach ($data->categories as $cat)
                                                             <li>
                                                                 {{ $cat->name }}
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
+                                                </td>
+                                                <td>
+                                                    <ul>
+                                                        @foreach ($data->tags as $tag)
+                                                            <li>
+                                                                {{ $tag->name }}
                                                             </li>
                                                         @endforeach
                                                     </ul>
