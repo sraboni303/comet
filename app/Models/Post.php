@@ -9,4 +9,14 @@ class Post extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    // Get User Info
+    public function user(){
+        return $this->belongsTo('App\Models\User');
+    }
+
+    // get Categories
+    public function categories(){
+        return $this->belongsToMany('App\Models\Category');
+    }
 }

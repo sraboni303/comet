@@ -1,15 +1,16 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TagController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\MemberController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\MemberController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PagesController;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\RoleController;
-use App\Http\Controllers\TagController;
 use Symfony\Component\HttpKernel\Profiler\Profile;
 
 // General Routes
@@ -76,5 +77,5 @@ Route::get('/post-trashes', [PostController::class, 'showTrashes'])->name('trash
 Route::get('/post-delete/{id}', [PostController::class, 'delete'])->name('delete.posts');
 
 
-// Route::get('/edit/{id}', [PostController::class, 'edit'])->name('edit.posts');
-
+// Frontend Routes:
+Route::get('/blog', [BlogController::class, 'showBlogPage']);

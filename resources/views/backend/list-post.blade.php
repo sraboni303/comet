@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <!-- /Page Header -->
-                
+
                 <div class="row">
                     <div class="col-sm-12">
                         <a class="badge badge-primary" href="#">Published {{ ($published == 0 ? '' : $published) }}</a>
@@ -42,6 +42,7 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Title</th>
+                                                <th>Author</th>
                                                 <th>Featured Type</th>
                                                 <th>Posted</th>
                                                 <th>Status</th>
@@ -57,6 +58,7 @@
                                             <tr>
                                                 <td>{{ $loop->index+1 }}</td>
                                                 <td>{{ $data->title }}</td>
+                                                <td>{{ $data->user->name }}</td>
                                                 <td>{{ $featured->type }}</td>
                                                 <td>{{ date('d M, Y', strtotime($data->created_at)) }}</td>
                                                 <td>

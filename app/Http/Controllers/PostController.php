@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -36,10 +37,13 @@ class PostController extends Controller
         $gallery_names = [];
 
         if($request->hasFile('image')){
+
             $image = $request->file('image');
             $image_name = md5(time().rand()) . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('media/posts/'), $image_name);
+
         }elseif($request->hasFile('gallery')){
+
             foreach($request->file('gallery') as $gallery){
                $gallery_name = md5(time().rand()) . '.' . $gallery->getClientOriginalExtension();
 
@@ -71,12 +75,16 @@ class PostController extends Controller
         ];
 
         // Create Post
-        Post::create([
+        $created = Post::create([
+            'user_id' => Auth::user()->id,
             'title' => $request->input('title'),
             'slug' => Str::slug($request->input('title')),
             'content' => $request->input('content'),
             'featured' => json_encode($featured, JSON_UNESCAPED_SLASHES),
         ]);
+
+        $created->categories()->attach($request->input('category'));
+
         return back();
     }
 
@@ -136,7 +144,7 @@ class PostController extends Controller
 
         return back();
     }
-    
+
 
     // Untrash
     public function untrash($id){

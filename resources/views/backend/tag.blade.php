@@ -19,7 +19,7 @@
                             </ul>
                         </div>
                         <div class="col-sm-5 col">
-                            <a id="add_category_btn" href="#" class="btn btn-primary float-right mt-2">Add</a>
+                            <a id="add_tag_btn" href="#" class="btn btn-primary float-right mt-2">Add</a>
                         </div>
                     </div>
                 </div>
