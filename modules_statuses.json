@@ -1,0 +1,10 @@
+{
+    "Blog": true,
+    "Category": true,
+    "Home": true,
+    "Member": true,
+    "Post": true,
+    "Profile": true,
+    "Role": true,
+    "Tag": true
+}
