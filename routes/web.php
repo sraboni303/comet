@@ -79,3 +79,5 @@ Route::get('/post-delete/{id}', [PostController::class, 'delete'])->name('delete
 
 // Frontend Routes:
 Route::get('/blog', [BlogController::class, 'showBlogPage']);
+Route::post('/blog-search', [BlogController::class, 'search'])->name('blog.search');
+Route::get('/blog-cat/{slug}', [BlogController::class, 'blogCat'])->name('blog.cat');

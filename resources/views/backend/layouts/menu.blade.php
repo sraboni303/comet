@@ -21,9 +21,9 @@
                 <li class="{{  request()->routeIs('tag.backend') ? 'active' : '' }}">
                     <a href="{{ route('tag.backend') }}"><i class="fe fe-document"></i> <span>  Tags </a>
                 </li>
-                <li class="{{  request()->routeIs('role.backend') ? 'active' : '' }}">
+                {{-- <li class="{{  request()->routeIs('role.backend') ? 'active' : '' }}">
                     <a href="{{ route('role.backend') }}"><i class="fe fe-document"></i> <span>  Roles </a>
-                </li>
+                </li> --}}
                 <li class="{{  request()->routeIs('member.backend') ? 'active' : '' }}">
                     <a href="{{ route('member.backend') }}"><i class="fe fe-document"></i> <span>  Members </a>
                 </li>

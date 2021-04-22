@@ -2,9 +2,12 @@
     <div class="sidebar hidden-sm hidden-xs">
     <div class="widget">
         <h6 class="upper">Search blog</h6>
-        <form>
-        <input type="text" placeholder="Search.." class="form-control">
+
+        <form action="{{ route('blog.search') }}" method="POST">
+            @csrf
+            <input type="text" placeholder="Search.." class="form-control" name="search">
         </form>
+
     </div>
     <!-- end of widget -->
     <div class="widget">
@@ -14,7 +17,7 @@
                 $categories = App\Models\Category::latest()->where('status', true)->take(6)->get();
             @endphp
             @foreach ($categories as $category)
-                <li><a href="{{ $category->id }}">{{ $category->name }}</a></li>
+                <li><a href="{{ route('blog.cat', $category->slug) }}">{{ $category->name }}</a></li>
             @endforeach
         </ul>
     </div>
